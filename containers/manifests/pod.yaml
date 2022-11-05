@@ -1,0 +1,15 @@
+apiVersion: v1
+
+kind: Pod
+
+metadata:
+  name: hasher-webserver
+  labels:
+    app: hasher-webserver
+  namespace: default
+
+spec:
+  containers:
+  - name: sinatra
+    image: akosipc/hasher-webserver:0.0.1
+    imagePullPolicy: IfNotPresent
