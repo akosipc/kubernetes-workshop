@@ -8,3 +8,6 @@
 
 ## Service
 - https://kubernetes.io/docs/concepts/services-networking/service/
+
+## HPA or Horizontal Pod Autoscaler
+- https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
