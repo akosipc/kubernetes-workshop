@@ -16,7 +16,7 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
-  replicas: 2
+  replicas: 1
   minReadySeconds: 5
   revisionHistoryLimit: 3
 
@@ -33,5 +33,5 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           requests:
-            cpu: 500m
+            cpu: 100m
             memory: 1024Mi
