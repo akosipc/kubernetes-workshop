@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: hasher-webserver
+  labels:
+    app: hasher-webserver
+  namespace: default
+
+spec:
+  selector:
+    matchLabels:
+      app: hasher-webserver
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 2
+  minReadySeconds: 5
+  revisionHistoryLimit: 3
+
+  template:
+    metadata:
+      labels:
+        app: hasher-webserver
+    spec:
+      containers:
+      - name: web-app
+        image: akosipc/hasher-webserver:0.0.1
+        ports:
+        - containerPort: 4567
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 500m
+            memory: 1024Mi
